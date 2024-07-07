@@ -1,0 +1,66 @@
+Crear un script que contenga todo el SQL para la creación de las tablas.
+
+
+CREATE TABLE Carrera (
+    id_carrera INT PRIMARY KEY,
+    Nombre VARCHAR(40),
+    Descripcion VARCHAR(40),
+    Plan_de_estudio VARCHAR(40),
+    Resolucion_Ministerial VARCHAR(40)
+);
+
+CREATE TABLE Materias (
+    id_materia INT PRIMARY KEY,
+    Nombre VARCHAR(20),
+    Año_cursado SMALLINT,
+    Plan_de_estudio VARCHAR(30),
+    id_carrera INT
+);
+
+CREATE TABLE Correlatividades (
+    id_correlatividad INT PRIMARY KEY,
+    id_materia1 INT,
+    id_materia2 INT
+);
+
+CREATE TABLE Estudiantes (
+    id_estudiante INT PRIMARY KEY,
+    Nombre VARCHAR(20),
+    Apellido VARCHAR(20),
+    Fecha_nacimiento DATE,
+    Direccion VARCHAR(30),
+    Telefono VARCHAR(20),
+    Email VARCHAR(30),
+    id_carrera INT
+);
+
+CREATE TABLE Inscripciones (
+    id_inscripcion INT PRIMARY KEY,
+    Estado VARCHAR(20),
+    Fecha_inscripcion DATE,
+    id_estudiante INT,
+    id_materia INT
+);
+
+CREATE TABLE Mesas (
+    id_mesa INT PRIMARY KEY,
+    Nombre VARCHAR(40),
+    Fecha_hora TIMESTAMP,
+    Inicio_inscripcion DATE,
+    Fin_inscripcion DATE
+);
+
+CREATE TABLE Notas (
+    id_nota INT PRIMARY KEY,
+    Nota_examen VARCHAR(10),
+    Valor INT,
+    id_mesa INT,
+    id_tipo_nota INT,
+    id_inscripcion1 INT,
+    id_inscripcion2 INT
+);
+
+CREATE TABLE Tipo_Nota (
+    id_tipo_nota INT PRIMARY KEY,
+    Descripcion VARCHAR(20)
+);

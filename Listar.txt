@@ -1,0 +1,38 @@
+Crear un script que contenga algunos SQL (mínimo 3) para poder recuperar o listar
+algún reporte de la Base de Datos.
+
+
+SELECT
+     Nombre,
+    Fecha_hora
+ FROM
+     Mesas
+WHERE
+     Fecha_hora >= '2024-01-01'
+     AND Fecha_hora < '2025-01-01';
+
+
+SELECT 
+    Nombre,
+    Apellido,
+    Email
+FROM 
+    Estudiantes
+WHERE 
+    id_carrera = 1;
+
+
+
+SELECT 
+    Estudiantes.Nombre AS Estudiante,
+    Estudiantes.Apellido AS Apellido,
+    Materias.Nombre AS Materia,
+    Inscripciones.Estado AS Estado,
+    Inscripciones.Fecha_inscripcion AS Fecha
+FROM 
+    Inscripciones,
+    Estudiantes,
+    Materias
+WHERE 
+    Inscripciones.id_estudiante = Estudiantes.id_estudiante
+    AND Inscripciones.id_materia = Materias.id_materia;
